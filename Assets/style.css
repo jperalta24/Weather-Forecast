@@ -1,0 +1,17 @@
+
+/* .searchBtn {
+    background-color: rgb(42, 133, 218);
+    border-style:inherit;
+    border-radius: 1px;
+    margin: 0px;
+    padding: 0px;
+    
+} */
+
+header {
+    text-align: center;
+    font-size: 80px;
+    margin-bottom: 20px;
+    padding: 0;
+    border-color: rgb(42, 133, 218);
+}
