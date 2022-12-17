@@ -27,7 +27,7 @@ let searchCity = () => {
             currentCity.text(data.name);
             currentDate.textContent = dayjs().format('MMM D, YYYY');
             cityIcon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-            console.log(data);
+        
             writeWeather(data);
             let longitude = data.coord.lon;
             let latitude = data.coord.lat;
@@ -42,7 +42,7 @@ let searchCity = () => {
 
                     writeForecast(data);
                 })
-console.log(currentDate);
+                
         })
 }
 
