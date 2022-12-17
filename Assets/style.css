@@ -16,8 +16,15 @@ header {
     border-color: rgb(42, 133, 218);
 }
 
-.weatherImage{
-    width: 15%;
-    
-    
+#currentCity{
+    font-size: 40px;
+}
+#cityDate{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#cityIcon{
+    max-width: 100%;
+    height: auto;
 }
