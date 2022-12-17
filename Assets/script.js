@@ -2,9 +2,9 @@
 let weatherAPIkey = "4ac77901699e70e15fcbbfca21acc34c";
 let city = "";
 // find all elements where I need to insert weather data
-let searchButton = $("#searchButton");
+let searchButton = document.querySelector("#searchButton");
 let searchInput = $("#searchCity");
-let searchHistory = $("#cityHistory");
+let searchHistory = document.querySelector("#cityHistory");
 let currentCity = $("#currentCity");
 let currentWeather = $("#currentWeatherInfo");
 let temp = $(".cityTemp");
@@ -15,8 +15,15 @@ let forecastTitle = document.querySelector('#forecastTitle');
 let currentDate = document.querySelector('#cityDate')
 let cityIcon = document.querySelector('#cityIcon');
 
+// weatherHistory()
+
 let searchCity = () => {
     let city = searchInput.val()
+
+    localStorage.setItem("cityName", city);
+    console.log(localStorage.getItem("cityName"));
+
+
     // units=imperial parameter will give us fahrenheit 
     let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=4ac77901699e70e15fcbbfca21acc34c";
     fetch(queryURL)
@@ -27,7 +34,7 @@ let searchCity = () => {
             currentCity.text(data.name);
             currentDate.textContent = dayjs().format('MMM D, YYYY');
             cityIcon.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-        
+
             writeWeather(data);
             let longitude = data.coord.lon;
             let latitude = data.coord.lat;
@@ -42,9 +49,24 @@ let searchCity = () => {
 
                     writeForecast(data);
                 })
-                
+
         })
 }
+
+function saveWeather(event) {
+    localStorage.setItem('city', event.target.value);
+    console.log(localStorage.getItem('city'));
+
+}
+// weatherHistory();
+// }
+
+// function weatherHistory (){
+//     let history = localStorage.getItem('city');
+//     searchHistory.textContent = history;
+//     console.log(history);
+
+// }
 
 //  adds temp, wind, and humidity data to current searched city
 function writeWeather(data) {
@@ -91,10 +113,10 @@ function writeForecast(data) {
         // add wind 
         let forecastWind = document.createElement('div');
         forecastWind.classList = 'card-body text-center';
-        forecastWind.textContent ='Wind :' + dailyForecast.wind.speed + 'MPH';
+        forecastWind.textContent = 'Wind :' + dailyForecast.wind.speed + 'MPH';
         forecastCard.appendChild(forecastWind);
         // appends forecast wind to forecast card div
-        
+
         // add humidity 
         let forecastHumidity = document.createElement('div');
         forecastHumidity.classList = 'card-body text-center';
@@ -113,7 +135,7 @@ function writeForecast(data) {
 
 
 // adds event listener for search button
-searchButton.click(searchCity)
+searchButton.addEventListener('click', searchCity)
 
 
 
