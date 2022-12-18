@@ -1,12 +1,9 @@
 
-/* .searchBtn {
-    background-color: rgb(42, 133, 218);
-    border-style:inherit;
-    border-radius: 1px;
-    margin: 0px;
-    padding: 0px;
-    
-} */
+*{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'MuseoModerno', cursive;
+    color: #4A4A4A;
+}
 
 header {
     text-align: center;
@@ -28,3 +25,4 @@ header {
     max-width: 100%;
     height: auto;
 }
+
