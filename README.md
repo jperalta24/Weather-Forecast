@@ -1,7 +1,7 @@
 # Weather-Forecast
 
 ## About the Project
-This weeks challenged involved creating a dashboard that provides weather conditions for cities by utilizing a server side API. 
+This weeks challenge involved creating a dashboard that provides weather conditions for cities by utilizing a server side API. 
 The user can enter a city name and the webpage will display the given cities current weather conditions along with a 5-day forecast. Search history will be saved to the local storage for future use and display on the webpage.
 
 
